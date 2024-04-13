@@ -2,7 +2,6 @@ import express from "express";
 import cloudinary from "cloudinary";
 import mongoose from "mongoose";
 import cors from "cors";
-import OpenAI from "openai";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -40,28 +39,6 @@ cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-
-// const openai = new OpenAI({
-//   apiKey: "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",
-// });
-
-// app.post("/generate-image", async (req, res) => {
-//   const { prompt } = req.body;
-
-//   try {
-//     const imageResponse = await openai.images.generate({
-//       model: "dall-e-3",
-//       n: 1,
-//       prompt,
-//       size: "1024x1024",
-//     });
-//     console(imageResponse.data.data[0].url);
-//     res.json(imageResponse.data.data[0].url);
-//   } catch (error) {
-//     console.log(error);
-//     res.json({ message: "Error generating image" });
-//   }
-// });
 
 app.get("/generate-image", async (req, res) => {
   try {
